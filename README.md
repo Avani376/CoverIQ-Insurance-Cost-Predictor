@@ -1,3 +1,7 @@
+<img width="1836" height="867" alt="prediction png" src="https://github.com/user-attachments/assets/8a510e04-6573-4cec-b432-62ae5968f0b2" />
+<img width="1845" height="866" alt="model_performance png" src="https://github.com/user-attachments/assets/e3c42fe6-739b-4357-9c57-c5dd6f88aed5" />
+<img width="1691" height="846" alt="login png" src="https://github.com/user-attachments/assets/53b96660-bae4-41b6-8cff-d37964cc0390" />
+<img width="1857" height="870" alt="home_page png" src="https://github.com/user-attachments/assets/4e6ef3c3-056e-4b30-b69b-65befbc6dca2" />
 # 🛡️ CoverIQ — Insurance Cost Predictor
 
 ### Predict Medical Insurance Charges Using Machine Learning
