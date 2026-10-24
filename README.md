@@ -1,156 +1,300 @@
-# CoverIQ — Insurance Cost Intelligence
+# 🛡️ CoverIQ — Insurance Cost Predictor
 
-CoverIQ is a Streamlit machine-learning application that explores a public insurance dataset, compares regression models, estimates annual charges for an entered profile, provides beginner-friendly sensitivity explanations, exports PDF reports, and saves user-specific prediction history in SQLite.
+### Predict Medical Insurance Charges Using Machine Learning
 
-> **Important:** This is an educational demonstration using a sample dataset. It does not provide an insurance quote, financial advice, or medical advice.
+CoverIQ is a machine learning web application that estimates individual medical insurance charges based on personal and lifestyle-related information. It provides an interactive interface for users to enter their details, receive estimated insurance costs, and explore model performance.
 
-## Features
+---
 
-- Premium dark dashboard with responsive Streamlit layout
-- Dataset exploration and summary statistics
-- Linear Regression, Random Forest, and Gradient Boosting
-- Train/test evaluation: R², MAE, RMSE, and cross-validation R²
-- Actual-versus-predicted visualisation
-- Feature importance / coefficient analysis
-- One-feature-at-a-time sensitivity explanation against a typical profile
-- Downloadable PDF report with profile, estimate, explanation, and model metrics
-- Sign-up/sign-in demo with PBKDF2 password hashing
-- SQLite account storage and persistent per-user prediction history
-- CSV export for history, cleaned dataset, and model comparison
+## 📌 Table of Contents
 
-## Project structure
+* [Overview](#-overview)
+* [Objectives](#-objectives)
+* [Features](#-features)
+* [Technology Stack](#-technology-stack)
+* [Machine Learning Models](#-machine-learning-models)
+* [Model Evaluation](#-model-evaluation)
+* [Application Screenshots](#-application-screenshots)
+* [Project Structure](#-project-structure)
+* [Installation and Setup](#-installation-and-setup)
+* [How to Use](#-how-to-use)
+* [Dataset](#-dataset)
+* [Future Enhancements](#-future-enhancements)
+* [Disclaimer](#-disclaimer)
+
+---
+
+## 📖 Overview
+
+Medical insurance charges can vary depending on several factors, including age, body mass index (BMI), smoking habits, number of dependents, and geographical region.
+
+CoverIQ applies machine learning techniques to estimate medical insurance charges using these input features.
+
+The project compares multiple regression algorithms and presents model evaluation metrics to help users understand their predictive performance.
+
+**Project Type:** Machine Learning and Web Application
+**Domain:** Healthcare Analytics and Insurance
+**Application Framework:** Streamlit
+**Problem Type:** Regression
+
+---
+
+## 🎯 Objectives
+
+* Explore and preprocess a medical insurance cost dataset.
+* Handle categorical features using appropriate encoding techniques.
+* Apply feature scaling where required.
+* Train and compare multiple machine learning regression models.
+* Evaluate models using MAE, RMSE, and R².
+* Perform five-fold cross-validation.
+* Develop an interactive web application using Streamlit.
+* Allow users to enter personal details and obtain estimated insurance charges.
+
+---
+
+## ✨ Features
+
+### 🏠 Interactive Home Page
+
+A user-friendly landing page introducing CoverIQ and its purpose.
+
+### 🔐 Login Interface
+
+A login interface for accessing the application.
+
+### 💰 Insurance Cost Prediction
+
+Enter relevant personal and lifestyle details to obtain a predicted medical insurance charge.
+
+### 📊 Model Performance Comparison
+
+Compare Linear Regression, Random Forest, and Gradient Boosting using regression evaluation metrics.
+
+### 📈 Model Evaluation
+
+Review MAE, RMSE, R², and five-fold cross-validation results to understand model performance.
+
+### 🧾 Prediction History
+
+Review previously saved predictions, if enabled in the application.
+
+---
+
+## 🛠️ Technology Stack
+
+| Technology          | Purpose                               |
+| ------------------- | ------------------------------------- |
+| Python              | Main programming language             |
+| Pandas              | Data manipulation and preprocessing   |
+| NumPy               | Numerical computations                |
+| Scikit-learn        | Machine learning and model evaluation |
+| Streamlit           | Interactive web application           |
+| Matplotlib / Plotly | Visualizations, where implemented     |
+| Git                 | Version control                       |
+| GitHub              | Source code hosting                   |
+
+*The libraries listed should match the actual imports and implementation in the project.*
+
+---
+
+## 🤖 Machine Learning Models
+
+CoverIQ compares the following regression algorithms.
+
+### 1. Linear Regression
+
+A baseline regression algorithm that models the relationship between input features and insurance charges.
+
+### 2. Random Forest Regressor
+
+An ensemble learning algorithm that combines predictions from multiple decision trees to model complex relationships in the data.
+
+### 3. Gradient Boosting Regressor
+
+An ensemble algorithm that builds decision trees sequentially, with each new tree helping reduce errors made by the existing model.
+
+---
+
+## 📊 Model Evaluation
+
+The models are evaluated using the following metrics.
+
+| Metric                  | Description                                                                                         |
+| ----------------------- | --------------------------------------------------------------------------------------------------- |
+| MAE                     | Mean Absolute Error; measures the average absolute difference between actual and predicted charges. |
+| RMSE                    | Root Mean Squared Error; penalizes larger prediction errors more heavily.                           |
+| R² Score                | Measures how well the model explains the variation in the target values.                            |
+| 5-Fold Cross-Validation | Evaluates model performance across five data folds to assess consistency.                           |
+
+### Model Comparison Results
+
+Replace the placeholders below with the actual values displayed by your application.
+
+| Model                       |        MAE |       RMSE |   R² Score | Mean 5-Fold CV R² |
+| --------------------------- | ---------: | ---------: | ---------: | ----------------: |
+| Linear Regression           | Add result | Add result | Add result |        Add result |
+| Random Forest Regressor     | Add result | Add result | Add result |        Add result |
+| Gradient Boosting Regressor | Add result | Add result | Add result |        Add result |
+
+**Note:** Lower MAE and RMSE generally indicate smaller prediction errors. Higher R² scores generally indicate better fit. Cross-validation results provide additional information about model performance across different data splits.
+
+---
+
+## 📸 Application Screenshots
+
+### 1. Home Page
+
+### 2. Login Page
+
+### 3. Insurance Cost Prediction
+
+### 4. Model Performance Comparison
+
+---
+
+## 📂 Project Structure
 
 ```text
-CoverIQ_Full_Project/
+CoverIQ-Insurance-Cost-Predictor/
+│
 ├── app.py
 ├── requirements.txt
 ├── README.md
 ├── .gitignore
-└── .streamlit/
-    └── config.toml
+│
+├── .streamlit/
+│   └── config.toml
+│
+└── screenshots/
+    ├── home_page.png
+    ├── login.png
+    ├── prediction.png
+    └── model_performance.png
 ```
 
-The `insurewise.db` SQLite database is created automatically when the app runs. It is intentionally ignored by Git because it contains account and prediction data.
+The `screenshots` folder contains the application images displayed in this README.
 
-## Run locally (Windows PowerShell)
+---
 
-1. Install Python 3.10 or later.
-2. Extract this project folder.
-3. Open PowerShell in the extracted folder.
-4. (Optional but recommended) create a virtual environment:
+## ⚙️ Installation and Setup
 
-   ```powershell
-   python -m venv .venv
-   .\.venv\Scripts\Activate.ps1
-   ```
+Follow these steps to run CoverIQ on your local machine.
 
-5. Install packages:
+### Prerequisites
 
-   ```powershell
-   python -m pip install -r requirements.txt
-   ```
+Install the following:
 
-6. Start the app:
+* Python 3.10 or another version compatible with the project's dependencies.
+* Git.
+* A web browser.
 
-   ```powershell
-   python -m streamlit run app.py
-   ```
+### Step 1: Clone the Repository
 
-7. Open the local address Streamlit prints (usually `http://localhost:8501`).
-8. Create an account in the app, sign in, enter a profile, and click **Calculate my estimate**.
+```bash
+git clone https://github.com/Avani376/CoverIQ-Insurance-Cost-Predictor.git
+```
 
-## Dataset
+### Step 2: Navigate to the Project Folder
 
-The app first looks for `data/insurance.csv` or `insurance.csv` in the project folder. If it does not find a valid local file, it attempts to download the sample dataset from:
+```bash
+cd CoverIQ-Insurance-Cost-Predictor
+```
 
-`https://raw.githubusercontent.com/stedy/Machine-Learning-with-R-datasets/master/insurance.csv`
+### Step 3: Create a Virtual Environment
 
-Expected columns:
+**Windows:**
 
-- `age`
-- `sex`
-- `bmi`
-- `children`
-- `smoker`
-- `region`
-- `charges`
+```powershell
+python -m venv venv
+```
 
-Internet access is needed when no local dataset is available.
+Activate it:
 
-## Methodology
+```powershell
+.\venv\Scripts\Activate.ps1
+```
 
-1. Numeric and categorical columns are separated.
-2. Missing numeric values are imputed with the median; categorical values are imputed with the most frequent category.
-3. Categorical values are one-hot encoded; numeric values are standardised.
-4. The dataset is split into training and test partitions.
-5. Three regression models are trained and compared:
-   - Linear Regression
-   - Random Forest Regressor
-   - Gradient Boosting Regressor
-6. Metrics are calculated on the held-out test partition. Cross-validation R² is also calculated.
-7. The highest test-set R² model is marked as the current best model.
+If PowerShell blocks activation, you can install the dependencies using the virtual environment's Python executable directly.
 
-### What the explanation means
+### Step 4: Install Dependencies
 
-The app compares a submitted profile with a typical reference profile (median numeric values and most frequent categories). It changes one input at a time and shows how the model output changes. This is a simple **sensitivity analysis**, not a causal explanation. These changes can overlap and should not be added together.
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
 
-## PDF reports
+### Step 5: Run the Application
 
-After making a prediction, select **Download personalized PDF report**. The report includes the entered profile, annual and monthly estimates, sensitivity comparisons, model metrics, and limitations.
+```bash
+streamlit run app.py
+```
 
-## Accounts and data storage
+Streamlit will provide a local URL, typically:
 
-This is a learning/demo implementation. Passwords are stored as salted PBKDF2-HMAC-SHA256 hashes rather than plain text. Prediction history is associated with the signed-in user in a local SQLite database.
+```text
+http://localhost:8501
+```
 
-**Before real public use:**
-- Use a production authentication provider or carefully reviewed authentication flow.
-- Use a managed database such as PostgreSQL for hosted persistence.
-- Add HTTPS, secrets management, rate limiting, privacy disclosures, data retention/deletion controls, and security review.
-- Do not collect real sensitive personal information in this educational demo.
+Open that address in your browser to access CoverIQ.
 
-## Deploy to Streamlit Community Cloud
+---
 
-1. Create a GitHub repository and upload `app.py`, `requirements.txt`, `README.md`, `.gitignore`, and `.streamlit/config.toml`.
-2. Do **not** commit `insurewise.db`, `.venv`, or personal data.
-3. Open Streamlit Community Cloud, connect GitHub, choose the repository and branch, and set the main file to `app.py`.
-4. Deploy and test the app using a new account and a test prediction.
+## 🧭 How to Use
 
-### Important hosting limitation
+1. Open the CoverIQ application.
+2. Explore the home page.
+3. Access the login interface if required.
+4. Navigate to the insurance prediction section.
+5. Enter the requested personal and lifestyle information.
+6. Submit the inputs to generate an estimated insurance charge.
+7. Visit the Model Performance section to compare the regression models.
+8. Review the available prediction history, if enabled.
 
-A local SQLite file on a hosted app may not be durable across restarts, redeploys, or infrastructure changes. For reliable account and prediction persistence on a public deployment, connect a managed PostgreSQL database and store credentials as deployment secrets. This project defaults to SQLite for local development and classroom demonstration.
+---
 
-## Screenshots for the portfolio
+## 📚 Dataset
 
-Capture screenshots after running the app:
-1. `screenshots/01-dashboard.png` — overview and KPI cards
-2. `screenshots/02-prediction.png` — prediction result and explanation
-3. `screenshots/03-model-evaluation.png` — model comparison
-4. `screenshots/04-history.png` — saved prediction history
-5. `screenshots/05-pdf-report.png` — generated PDF report
+This project is based on the **Medical Cost Personal Dataset**, commonly used for medical insurance cost prediction.
 
-Create a `screenshots/` directory and add your actual screenshots. Do not use placeholder screenshots or claim a deployment is live until it has been tested.
+Typical features include:
 
-## Model metrics interpretation
+| Feature    | Description                                      |
+| ---------- | ------------------------------------------------ |
+| `age`      | Age of the individual                            |
+| `sex`      | Sex category                                     |
+| `bmi`      | Body Mass Index                                  |
+| `children` | Number of dependents                             |
+| `smoker`   | Smoking status                                   |
+| `region`   | Residential region                               |
+| `charges`  | Medical insurance charges; the prediction target |
 
-- **R²:** fraction of target variation explained on the held-out test set; closer to 1 is generally better.
-- **MAE:** average absolute prediction error in the target's units; lower is better.
-- **RMSE:** square root of mean squared error; larger errors have more influence; lower is better.
-- **Cross-validation R²:** average R² across validation folds; it may differ from the held-out test result.
+The dataset is used to explore relationships between the input features and medical insurance charges.
 
-A score is not the same as individual prediction accuracy. Performance depends on the dataset, split, and model settings.
+**Dataset source:** Add the original dataset source or download reference used in your project.
 
-## Limitations and future improvements
+---
 
-- Public sample data may not reflect current insurance pricing or all populations.
-- Several important factors such as policy details and provider-specific rules are not represented.
-- Sensitivity analysis is not causal inference.
-- SQLite is appropriate for local demos, not concurrent public production use.
-- Potential future work: managed database, SHAP-based explanations, automated tests, model versioning, data drift monitoring, and a CI deployment workflow.
+## 🔮 Future Enhancements
 
-## License
+* Deploy the application to Streamlit Community Cloud.
+* Improve model performance through hyperparameter tuning.
+* Add additional visualizations for model comparison.
+* Enhance prediction explanations.
+* Improve application accessibility and mobile responsiveness.
+* Add secure user authentication and persistent prediction storage where appropriate.
 
-Add a license file if you intend to distribute or publish this project. Check the dataset source terms before redistribution.
+---
 
+## ⚠️ Disclaimer
 
-## CoverIQ theme update
-The interface uses a dark navy, violet, and electric-blue visual theme with subtle CSS motion and hover effects. The database filename remains `insurewise.db` for compatibility with an existing local account database.
+CoverIQ provides machine learning-based estimates for educational and demonstration purposes. Predictions are not official insurance quotations and should not be used as the sole basis for financial, medical, or insurance decisions.
+
+Actual insurance charges may vary depending on insurer policies, coverage, location, and other factors.
+
+---
+
+##
+
+---
+
+⭐ If you find this project interesting, consider giving the repository a star!
