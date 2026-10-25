@@ -1,12 +1,10 @@
-<img width="1836" height="867" alt="prediction png" src="https://github.com/user-attachments/assets/8a510e04-6573-4cec-b432-62ae5968f0b2" />
-<img width="1845" height="866" alt="model_performance png" src="https://github.com/user-attachments/assets/e3c42fe6-739b-4357-9c57-c5dd6f88aed5" />
-<img width="1691" height="846" alt="login png" src="https://github.com/user-attachments/assets/53b96660-bae4-41b6-8cff-d37964cc0390" />
-<img width="1857" height="870" alt="home_page png" src="https://github.com/user-attachments/assets/4e6ef3c3-056e-4b30-b69b-65befbc6dca2" />
 # 🛡️ CoverIQ — Insurance Cost Predictor
 
 ### Predict Medical Insurance Charges Using Machine Learning
 
 CoverIQ is a machine learning web application that estimates individual medical insurance charges based on personal and lifestyle-related information. It provides an interactive interface for users to enter their details, receive estimated insurance costs, and explore model performance.
+
+The project applies regression algorithms to predict insurance charges and compares model performance using standard evaluation metrics.
 
 ---
 
@@ -20,11 +18,11 @@ CoverIQ is a machine learning web application that estimates individual medical 
 * [Model Evaluation](#-model-evaluation)
 * [Application Screenshots](#-application-screenshots)
 * [Project Structure](#-project-structure)
-* [Installation and Setup](#-installation-and-setup)
+* [Installation and Setup](#️-installation-and-setup)
 * [How to Use](#-how-to-use)
 * [Dataset](#-dataset)
 * [Future Enhancements](#-future-enhancements)
-* [Disclaimer](#-disclaimer)
+* [Disclaimer](#️-disclaimer)
 
 ---
 
@@ -32,9 +30,9 @@ CoverIQ is a machine learning web application that estimates individual medical 
 
 Medical insurance charges can vary depending on several factors, including age, body mass index (BMI), smoking habits, number of dependents, and geographical region.
 
-CoverIQ applies machine learning techniques to estimate medical insurance charges using these input features.
+CoverIQ uses machine learning to estimate medical insurance charges based on these input features.
 
-The project compares multiple regression algorithms and presents model evaluation metrics to help users understand their predictive performance.
+The application provides an interactive interface for entering personal details and obtaining predictions. It also supports comparing regression models to understand their predictive performance.
 
 **Project Type:** Machine Learning and Web Application
 **Domain:** Healthcare Analytics and Insurance
@@ -52,7 +50,8 @@ The project compares multiple regression algorithms and presents model evaluatio
 * Evaluate models using MAE, RMSE, and R².
 * Perform five-fold cross-validation.
 * Develop an interactive web application using Streamlit.
-* Allow users to enter personal details and obtain estimated insurance charges.
+* Allow users to enter personal and lifestyle information and obtain estimated insurance charges.
+* Present model evaluation results in an understandable format.
 
 ---
 
@@ -64,7 +63,7 @@ A user-friendly landing page introducing CoverIQ and its purpose.
 
 ### 🔐 Login Interface
 
-A login interface for accessing the application.
+A login interface for accessing the application, if authentication is enabled.
 
 ### 💰 Insurance Cost Prediction
 
@@ -80,7 +79,7 @@ Review MAE, RMSE, R², and five-fold cross-validation results to understand mode
 
 ### 🧾 Prediction History
 
-Review previously saved predictions, if enabled in the application.
+Review previously saved predictions, if implemented in the application.
 
 ---
 
@@ -97,7 +96,7 @@ Review previously saved predictions, if enabled in the application.
 | Git                 | Version control                       |
 | GitHub              | Source code hosting                   |
 
-*The libraries listed should match the actual imports and implementation in the project.*
+*The listed libraries should match the actual implementation and imports in the project.*
 
 ---
 
@@ -109,13 +108,19 @@ CoverIQ compares the following regression algorithms.
 
 A baseline regression algorithm that models the relationship between input features and insurance charges.
 
+**Purpose:** Establish a baseline for comparing prediction accuracy.
+
 ### 2. Random Forest Regressor
 
 An ensemble learning algorithm that combines predictions from multiple decision trees to model complex relationships in the data.
 
+**Purpose:** Capture nonlinear relationships between input features and insurance charges.
+
 ### 3. Gradient Boosting Regressor
 
 An ensemble algorithm that builds decision trees sequentially, with each new tree helping reduce errors made by the existing model.
+
+**Purpose:** Improve predictive performance by learning from previous model errors.
 
 ---
 
@@ -127,12 +132,12 @@ The models are evaluated using the following metrics.
 | ----------------------- | --------------------------------------------------------------------------------------------------- |
 | MAE                     | Mean Absolute Error; measures the average absolute difference between actual and predicted charges. |
 | RMSE                    | Root Mean Squared Error; penalizes larger prediction errors more heavily.                           |
-| R² Score                | Measures how well the model explains the variation in the target values.                            |
+| R² Score                | Measures how well the model explains variation in the target values.                                |
 | 5-Fold Cross-Validation | Evaluates model performance across five data folds to assess consistency.                           |
 
 ### Model Comparison Results
 
-Replace the placeholders below with the actual values displayed by your application.
+Replace the placeholders below with the actual results from your application.
 
 | Model                       |        MAE |       RMSE |   R² Score | Mean 5-Fold CV R² |
 | --------------------------- | ---------: | ---------: | ---------: | ----------------: |
@@ -140,19 +145,42 @@ Replace the placeholders below with the actual values displayed by your applicat
 | Random Forest Regressor     | Add result | Add result | Add result |        Add result |
 | Gradient Boosting Regressor | Add result | Add result | Add result |        Add result |
 
-**Note:** Lower MAE and RMSE generally indicate smaller prediction errors. Higher R² scores generally indicate better fit. Cross-validation results provide additional information about model performance across different data splits.
+**Interpreting the results:**
+
+* Lower MAE generally indicates smaller average prediction errors.
+* Lower RMSE generally indicates smaller errors, with greater penalties for large errors.
+* Higher R² generally indicates a better fit to the evaluation data.
+* Cross-validation helps assess consistency across different data splits.
 
 ---
 
 ## 📸 Application Screenshots
 
-### 1. Home Page
+Explore the CoverIQ interface and its key features through the screenshots below.
 
-### 2. Login Page
+### 🏠 1. Home Page
 
-### 3. Insurance Cost Prediction
+The home page introduces CoverIQ and provides an entry point to the application's features.
 
-### 4. Model Performance Comparison
+![CoverIQ Home Page](./home_page.png)
+
+### 🔐 2. Login Page
+
+The login interface provides access to the application where authentication is implemented.
+
+![CoverIQ Login Page](./login.png)
+
+### 💰 3. Insurance Cost Prediction
+
+The prediction interface allows users to enter relevant information and obtain an estimated insurance charge.
+
+![CoverIQ Insurance Cost Prediction](./prediction.png)
+
+### 📊 4. Model Performance Comparison
+
+The model performance interface presents evaluation results for comparing the implemented regression algorithms.
+
+![CoverIQ Model Performance Comparison](./model_performance.png)
 
 ---
 
@@ -161,28 +189,29 @@ Replace the placeholders below with the actual values displayed by your applicat
 ```text
 CoverIQ-Insurance-Cost-Predictor/
 │
+├── .streamlit/
+│   └── config.toml
+│
+├── screenshots/
+│
 ├── app.py
 ├── requirements.txt
 ├── README.md
 ├── .gitignore
 │
-├── .streamlit/
-│   └── config.toml
-│
-└── screenshots/
-    ├── home_page.png
-    ├── login.png
-    ├── prediction.png
-    └── model_performance.png
+├── home_page.png
+├── login.png
+├── prediction.png
+└── model_performance.png
 ```
 
-The `screenshots` folder contains the application images displayed in this README.
+The four screenshot images above are referenced directly from the repository root. The `screenshots/` directory is also present in the repository and can be used to organize additional screenshots.
 
 ---
 
 ## ⚙️ Installation and Setup
 
-Follow these steps to run CoverIQ on your local machine.
+Follow these steps to run CoverIQ locally.
 
 ### Prerequisites
 
@@ -212,47 +241,49 @@ cd CoverIQ-Insurance-Cost-Predictor
 python -m venv venv
 ```
 
-Activate it:
+Activate the environment:
 
 ```powershell
 .\venv\Scripts\Activate.ps1
 ```
 
-If PowerShell blocks activation, you can install the dependencies using the virtual environment's Python executable directly.
+If PowerShell blocks activation, use the virtual environment's Python executable directly to install dependencies.
 
 ### Step 4: Install Dependencies
 
-```bash
+```powershell
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
 ### Step 5: Run the Application
 
-```bash
+```powershell
 streamlit run app.py
 ```
 
-Streamlit will provide a local URL, typically:
+Streamlit will display a local URL, typically:
 
 ```text
 http://localhost:8501
 ```
 
-Open that address in your browser to access CoverIQ.
+Open the URL in your browser to access CoverIQ.
 
 ---
 
 ## 🧭 How to Use
 
-1. Open the CoverIQ application.
-2. Explore the home page.
-3. Access the login interface if required.
-4. Navigate to the insurance prediction section.
-5. Enter the requested personal and lifestyle information.
-6. Submit the inputs to generate an estimated insurance charge.
-7. Visit the Model Performance section to compare the regression models.
-8. Review the available prediction history, if enabled.
+1. Clone the repository and install the required dependencies.
+2. Start the Streamlit application.
+3. Open the application in your browser.
+4. Explore the home page.
+5. Access the login interface if authentication is required.
+6. Navigate to the insurance prediction section.
+7. Enter the requested personal and lifestyle information.
+8. Submit the inputs to generate an estimated insurance charge.
+9. Visit the model performance section to compare the regression models.
+10. Review prediction history if that feature is available.
 
 ---
 
@@ -272,20 +303,22 @@ Typical features include:
 | `region`   | Residential region                               |
 | `charges`  | Medical insurance charges; the prediction target |
 
-The dataset is used to explore relationships between the input features and medical insurance charges.
+The dataset can be used to explore relationships between personal characteristics, lifestyle factors, and medical insurance charges.
 
-**Dataset source:** Add the original dataset source or download reference used in your project.
+**Dataset source:** Add the original dataset download reference used in the project.
 
 ---
 
 ## 🔮 Future Enhancements
 
-* Deploy the application to Streamlit Community Cloud.
-* Improve model performance through hyperparameter tuning.
-* Add additional visualizations for model comparison.
-* Enhance prediction explanations.
-* Improve application accessibility and mobile responsiveness.
-* Add secure user authentication and persistent prediction storage where appropriate.
+* [ ] Deploy the application to Streamlit Community Cloud.
+* [ ] Improve model performance through hyperparameter tuning.
+* [ ] Add additional visualizations for model comparison.
+* [ ] Enhance prediction explanations.
+* [ ] Improve application accessibility and mobile responsiveness.
+* [ ] Add secure authentication where required.
+* [ ] Add persistent prediction storage where appropriate.
+* [ ] Include actual model evaluation results in the README.
 
 ---
 
@@ -293,12 +326,16 @@ The dataset is used to explore relationships between the input features and medi
 
 CoverIQ provides machine learning-based estimates for educational and demonstration purposes. Predictions are not official insurance quotations and should not be used as the sole basis for financial, medical, or insurance decisions.
 
-Actual insurance charges may vary depending on insurer policies, coverage, location, and other factors.
+Actual insurance charges may vary depending on insurer policies, coverage, location, underwriting criteria, and other factors.
 
 ---
 
-##
+## ⭐ Support
+
+If you find this project interesting, consider giving the repository a star!
+
+**Repository:** [Avani376/CoverIQ-Insurance-Cost-Predictor](https://github.com/Avani376/CoverIQ-Insurance-Cost-Predictor)
 
 ---
 
-⭐ If you find this project interesting, consider giving the repository a star!
+*CoverIQ — Exploring insurance cost prediction through machine learning.*
